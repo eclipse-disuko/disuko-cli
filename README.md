@@ -33,10 +33,6 @@ cd disclosure-cli
 go build -o disclosure-cli
 ```
 
-### Disclosure-CLI as GitHub Action
-The definition of the action can be found in the file action.yml in the repository. A working example ([sbom-upload.yml](./.github/workflows/sbom-upload.yml)) can be found in the .github/workflows folder. 
-
-
 ## How-To
 
 The recommended way to use the Disclosure-CLI as executable is with a config file, but you can also set environment variables or use flags with your commands instead. 
