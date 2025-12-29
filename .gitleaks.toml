@@ -1,0 +1,4 @@
+title = "Disuko cli development"
+
+[extend]
+useDefault = true
