@@ -1,10 +1,9 @@
-# Disclosure-CLI
+# disuko-cli
 
 ## Introduction
-The Disclosure-CLI provides an easy way to access the public api of the FOSS Disclosure Portal.
-It is the recommended tool for external suppliers who do not have access to the Disclosure Portal and need access to the project data.
+The disuko-cli provides an easy way to access the public api of the eclipse-disuko Disclosure Portal.
 
-With the Disclosure-CLI external suppliers can:
+With the disuko-cli users can:
 - Create new project versions
 - Access policy rules
 - Upload SBOM files
@@ -21,22 +20,17 @@ With the Disclosure-CLI external suppliers can:
 * [Provider Information](#provider-information)
 
 ## Download and build
-We distribute the Disclosure-CLI as executables, container image and github action.
-
-### Disclosure-CLI executables
-You can download the binaries for the Disclosure-CLI in the GitHub releases page. 
-
-You can also download the source code and build it yourself. 
+You can download the source code and build it yourself. 
 ```
 git clone https://github.com/eclipse-disuko/disuko-cli.git
-cd disclosure-cli
-go build -o disclosure-cli
+cd disuko-cli
+go build -o disuko-cli
 ```
 
 ## How-To
 
-The recommended way to use the Disclosure-CLI as executable is with a config file, but you can also set environment variables or use flags with your commands instead. 
-The config file needs to be in the same folder as the Disclosure-CLI, needs to be named `config.yml` and must have the following structure:
+The recommended way to use the disuko-cli as executable is with a config file, but you can also set environment variables or use flags with your commands instead. 
+The config file needs to be in the same folder as the disuko-cli, needs to be named `config.yml` and must have the following structure:
 
 ``` yml
 projecttoken: "project-token"
@@ -53,16 +47,15 @@ INPUT_PROJECT_VERSION
 INPUT_HOST
 ```
 
-### How to use the Disclosure-CLI
+### How to use the disuko-cli
 
 ```
-./disclosure-cli
+./disuko-cli
 
-A Disclosure Portal client for the disclosure public api.
-Manage your projects with this client.
+A client for the disclosure public api, to manage your projects.
 
 Usage:
-  disclosure-cli [command]
+  ./disuko-cli [command]
 
 Available Commands:
   completion  Generate the autocompletion script for the specified shell
@@ -74,21 +67,21 @@ Available Commands:
 
 Flags:
   -c, --configFile string   location of the config file (default "./config.yml")
-  -h, --help                help for disclosure-cli
-  -t, --token string        disclosure-cli project token
+  -h, --help                help for disuko-cli
+  -t, --token string        disuko-cli project token
   -u, --uuid string         uuid of the project
   -v, --version string      version of the project (default "1.0")
 
-Use "disclosure-cli [command] --help" for more information about a command.
+Use "./disuko-cli [command] --help" for more information about a command.
 ```
 
 ### Sample commands
 ```
 // Retrieving project detail
-./disclosure-cli project details -H HOST -u PROJECT_UUID -t TOKEN
+./disuko-cli project details -H HOST -u PROJECT_UUID -t TOKEN
 
 // Upload sbom to a project version
-./disclosure-cli version sbomUpload FILENAME -H HOST -u PROJECT_UUID -t TOKEN -v VERSION
+./disuko-cli version sbomUpload FILENAME -H HOST -u PROJECT_UUID -t TOKEN -v VERSION
 ```
 
 ### Available Commands
@@ -125,25 +118,25 @@ version sbomUpload -h
 
 
 ## Guided example
-The next few steps will guide you through a Disclosure Portal project with the Disclosure-CLI.
+The next few steps will guide you through a eclipse-disuko Disclosure Portal project with the disuko-cli.
 In this guided example we will use a config file to access our project, but you can also use flags or environment variables. 
 
 ### Step 0 - Preparation
-For the next few steps you need a project in the Disclosure Portal, and the unique identifier and token of your project.  
-You can skip to the Disclosure-CLI subsection, if you already have this data.
+For the next few steps you need a project in the eclipse-disuko Disclosure Portal, and the unique identifier and token of your project.  
+You can skip to the disuko-cli subsection, if you already have this data.
 
-**Disclosure Portal**
-*Only project owners in the Disclosure Portal have the permissions to do these steps.*
-a) Create a new Project in the Disclosure Portal. Take note of the Unique identifier of the project, you will need it in a moment.  
-b) Create a token. You will need this token to access your project with the Disclosure-CLI.
+**eclipse-disuko Disclosure Portal**
+*Only project owners in the eclipse-disuko Disclosure Portal have the permissions to do these steps.*
+a) Create a new Project in the eclipse-disuko Disclosure Portal. Take note of the Unique identifier of the project, you will need it in a moment.  
+b) Create a token. You will need this token to access your project with the disuko-cli.
 
-**Disclosure-CLI**  
-a) Create a new folder wherever you want. I will call this folder `disclosure-cli`, but you can name it differently.  
-b) Download the source code for the Disclosure-CLI client and build it.
+**disuko-cli**  
+a) Create a new folder wherever you want. I will call this folder `disuko-cli`, but you can name it differently.  
+b) Download the source code for the disuko-cli client and build it.
 ```
-go build -o disclosure-cli
+go build -o disuko-cli
 ```
-c) Move `disclosure-cli` into your created folder (a)  
+c) Move `disuko-cli` into your created folder (a)  
 d) Create a new config file named `config.yml` with the following attributes and values in the same folder
 ``` yml
 projecttoken: "project-token"
@@ -151,21 +144,21 @@ projectuuid: "project-uuid"
 projectversion: "1.0"
 host: "" // host needs to be changed to public api
 ```
-If you have just created a new project, your project on the Disclosure Portal won't have a project version yet.
+If you have just created a new project, your project on the eclipse-disuko Disclosure Portal won't have a project version yet.
 We will create a version `1.0` in the following steps.
 
 ### Step 1 - Your first command: Get the project details
 
 ```
-./disclosure-cli project details
+./disuko-cli project details
 ```
 ```
 {
-    "name": "disclosure-cli-example",
+    "name": "disuko-cli-example",
     "uuid": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee",
     "created": "2022-03-16T14:54:13.306719888Z",
     "updated": "2022-03-16T15:13:45.461701011Z",
-    "schema": "EnterpriseIT",
+    "schema": "DefaultSchema",
     "description": "This is the example project for the cli client."
 }
 ```
@@ -173,7 +166,7 @@ We will create a version `1.0` in the following steps.
 ### Step 2 - Create a project version
 Our project still does not have a project version. Let's create one.
 ```
-./disclosure-cli version create "1.0" "First iteration of the disclosure-cli example"
+./disuko-cli version create "1.0" "First iteration of the disuko-cli example"
 ```
 ```
 {
@@ -184,7 +177,7 @@ Our project still does not have a project version. Let's create one.
 ```
 Let's have a look at the project versions of our project. There should only be one ;)
 ```
-./disclosure-cli version list
+./disuko-cli version list
 ```
 ```
 [
@@ -197,7 +190,7 @@ Next we will upload the SBOM and look at the metadata of the SBOM.
 The SBOM is always related to a specific project version. In our case it is `1.0` as described in our `config.yml`.
 
 ```
-./disclosure-cli version sbomUpload ./disclosure-cli/sbom.json
+./disuko-cli version sbomUpload ./disuko-cli/sbom.json
 ```
 ```
 {
@@ -209,11 +202,11 @@ The SBOM is always related to a specific project version. In our case it is `1.0
 }
 ```
 ```
-./disclosure-cli version sbomDetails
+./disuko-cli version sbomDetails
 ```
 ```
 {
-    "name": "Disclosure-CLI,
+    "name": "disuko-cli,
     "id": "SPDXRef-DOCUMENT",
     "version": "SPDX-2.2",
     "creators": "Tool: xxx",
