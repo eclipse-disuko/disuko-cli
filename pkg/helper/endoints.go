@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/mercedes-benz/disclosure-cli/conf"
+	"github.com/eclipse-disuko/disuko-cli/conf"
 )
 
 // BuildAPIURL builds the complete API URL with version

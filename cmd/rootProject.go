@@ -5,7 +5,7 @@
 package cmd
 
 import (
-	"github.com/mercedes-benz/disclosure-cli/conf"
+	"github.com/eclipse-disuko/disuko-cli/conf"
 	"github.com/spf13/cobra"
 )
 

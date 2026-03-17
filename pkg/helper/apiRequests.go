@@ -14,7 +14,7 @@ import (
 	"os"
 	"path"
 
-	"github.com/mercedes-benz/disclosure-cli/conf"
+	"github.com/eclipse-disuko/disuko-cli/conf"
 )
 
 func SbomUploadFormData(url string, completeFilename string, tag string) string {

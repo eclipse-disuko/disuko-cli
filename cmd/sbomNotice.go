@@ -8,8 +8,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/mercedes-benz/disclosure-cli/conf"
-	"github.com/mercedes-benz/disclosure-cli/pkg/helper"
+	"github.com/eclipse-disuko/disuko-cli/conf"
+	"github.com/eclipse-disuko/disuko-cli/pkg/helper"
 	"github.com/spf13/cobra"
 )
 
