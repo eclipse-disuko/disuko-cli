@@ -2,7 +2,7 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-module github.com/mercedes-benz/disclosure-cli
+module github.com/eclipse-disuko/disuko-cli
 
 go 1.25.3
 

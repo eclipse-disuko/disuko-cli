@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/mercedes-benz/disclosure-cli/cmd"
+	"github.com/eclipse-disuko/disuko-cli/cmd"
 )
 
 func main() {

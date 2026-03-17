@@ -9,7 +9,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/mercedes-benz/disclosure-cli/conf"
+	"github.com/eclipse-disuko/disuko-cli/conf"
 	"github.com/spf13/cobra"
 	"github.com/stretchr/testify/assert"
 )
