@@ -253,11 +253,3 @@ By participating in this project, you agree to uphold this Code of Conduct in al
 ## License
 
 This project is licensed under the [Apache-2.0](LICENSE).
-
-## Provider Information
-
-Please visit <https://github.com/mercedes-benz/foss/blob/master/PROVIDER_INFORMATION.md> for information on the provider.
-
-Notice: Before you use the program in productive use, please take all necessary precautions,
-e.g. testing and verifying the program with regard to your specific use.
-The program was tested solely for our own use cases, which might differ from yours.
