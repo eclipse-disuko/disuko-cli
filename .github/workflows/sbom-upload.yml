@@ -13,6 +13,15 @@ on:
           Leave empty to use the current commit SHA.
         required: false
         type: string
+      staging:
+        description: >
+          Whether to upload the SBOM to the staging environment.
+        required: false
+        type: boolean
+        default: true
+
+permissions:
+  id-token: write
 
 jobs:
   sbom-upload:
@@ -49,6 +58,13 @@ jobs:
             -main . \
             -json \
             -output sbom.cyclonedx.json
+
+      - uses: eclipse-csi/workflows/upload-sbom@d83da6f2897e985d9d2b9541174c7ee5ee6d88ad # releases do not exist
+        with:
+          sbom-file: 'sbom.cyclonedx.json'
+          product-name: 'disuko-cli'
+          product-version: ${{ steps.version.outputs.value }}
+          staging: ${{ inputs.staging }}
 
       - name: Upload SBOM as artifact
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
